@@ -1,10 +1,7 @@
-import os
 from flask import Flask, request, Response, flash
 from flask_sqlalchemy import SQLAlchemy
 import requests
 import json
-from json.decoder import JSONDecodeError
-from urllib.request import Request, urlopen
 from sqlalchemy.sql import func
 import psycopg2
 
@@ -33,9 +30,7 @@ def main():
     damageRank =  r.json()['competitive']['damage']['rank']
     supportRank =  r.json()['competitive']['support']['rank']
 
-    # Goes back to the database and returns the most recent entry from there.
-    # Ultimately, it's probably better to gather EVERYTHING here and just iterate
-    # through queryObject[0], but idk if that's how matlabplot and pandas work
+    # Goes back to the database and returns the most recent entry from there to ensure you upload the right one
     query = db.session.query(Ranks).order_by(Ranks.time_created.desc()).first()
     queryObject = {'tank': query.tank,
                     'damage': query.damage,
