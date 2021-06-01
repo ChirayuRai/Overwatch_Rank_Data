@@ -10,7 +10,7 @@ def main():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db = SQLAlchemy(app)
 
-    # Creating the table for which I store my rank data
+    # Creating the table of ranked data
     class Ranks(db.Model):
         __tablename__='ranks'
         id = db.Column(db.Integer, primary_key=True)
