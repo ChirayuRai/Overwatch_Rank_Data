@@ -3,7 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 import requests
 import json
 from sqlalchemy.sql import func
-import psycopg2
 
 def main():
     app = Flask(__name__)
