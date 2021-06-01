@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 
 # Create an engine instance
-alchemyEngine = create_engine('postgres://postgres:home@localhost:5432/owrank', pool_recycle=3600);
+alchemyEngine = create_engine('enter_postgres_uri_here', pool_recycle=3600);
 
 # Connect to PostgreSQL server
 dbConnection = alchemyEngine.connect();
@@ -18,13 +18,11 @@ dataFrame = pds.read_sql("select * from \"ranks\"", dbConnection);
 pds.set_option('display.expand_frame_repr', False);
 
 # Print the DataFrame
-# plt.title("How I Throw With Each Rank")
-
 plt.plot(dataFrame.time_created, dataFrame.tank, label="Tank")
 plt.plot(dataFrame.time_created, dataFrame.damage, label="Damage")
 plt.plot(dataFrame.time_created, dataFrame.support, label="Support")
 
-# Makes the labels look better
+# Makes the labels look better by rotating them a bit
 plt.xticks(rotation=40, horizontalalignment='right')
 
 plt.xlabel("Time")
