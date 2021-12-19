@@ -1,1 +1,6 @@
-The first file, OWRankData, takes my rank from Overwatch and uploads it to an SQL database. The second file, RankDataGraph creates a graph of my rank in Overwatch.
+# Overwatch Rank Data
+
+This program collects the a specified user's rank in the online FPS "Overwatch", stores that rank in a database, and then graphs it out for the user to see.
+
+Techonology used: Python3, SQL, sqlalchemy, pandas, matplotlib
+
